@@ -36,26 +36,27 @@
         petrificus inflamarae.
       </p>
       <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button"
+        <a class="btn btn-primary btn-lg" id="introBtn" href="#" role="button"
           >Let's start sorting!</a
         >
       </p>
     </div>
 
-    <form>
+    <form id="sortingForm">
       <div class="form-group">
-        <label for="exampleInputEmail1">Student:</label>
+          <h2>Enter First Year's Name</h2>
+        <label for="studentName">Student:</label>
         <input
-          type="email"
+          type="text"
           class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          id="studentName"
           placeholder="Ex: John Smith"
         />
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button id="submit" type="submit" class="btn btn-primary">Sort!</button>
     </form>
 
+    <div id="cards" class="d-flex flex-wrap justify-content-around"></div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

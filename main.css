@@ -6,3 +6,7 @@
 body {
     background-color: lightblue;
 }
+
+#sortingForm {
+    display: none;
+}
