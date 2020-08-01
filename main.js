@@ -2,35 +2,49 @@
 
 const hatCards = [];
 
-const handleIntroButtonClick = (e) => {
-    document.getElementById('sortingForm').style.display = 'block';
+const introButtonClick = (e) => {
+  document.getElementById('sortingForm').style.display = 'block';
 };
 
-const handleSubmitButtonClick = (e) => {
+const submitButtonClick = (e) => {
   let inputName = document.getElementById('studentName').value;
 
   const houses = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
   let randomHouse = houses[Math.floor(Math.random() * houses.length)];
 
-  let obj = {
-    studentName: inputName,
-    houseName: randomHouse,
-  };
-
-  hatCards.push(obj);
-  cardBuilder(hatCards);
+  if (inputName === '') {
+    errorMessage();
+  } else {
+    let houseSelection = {
+      studentName: inputName,
+      houseName: randomHouse,
+    };
+    hatCards.push(houseSelection);
+    cardBuilder(hatCards);
+  }
 };
 
-const handleExpelButtonClick = (e) => {
-    const target = e.target.id;
+const errorMessage = () => {
+  alert('You need to enter a name');
+};
+
+const expelStudent = (e) => {
+  const ctype = e.target.type;
+  const target = e.target.id;
+  if (ctype === 'button') {
     hatCards.splice(target, 1);
     cardBuilder(hatCards);
-}
+  }
+};
 
 const buttonEvents = () => {
-  document.querySelector('#introBtn').addEventListener('click', handleIntroButtonClick);
-  document.querySelector('#submit').addEventListener('click', handleSubmitButtonClick);
-  document.querySelector('#cards').addEventListener('click', handleExpelButtonClick);
+  document
+    .querySelector('#introBtn')
+    .addEventListener('click', introButtonClick);
+  document
+    .querySelector('#submit')
+    .addEventListener('click', submitButtonClick);
+  document.querySelector('#cards').addEventListener('click', expelStudent);
 };
 
 const printToDom = (divId, textToPrint) => {
@@ -47,7 +61,7 @@ const cardBuilder = (arr) => {
                         <div class="card-body">
                             <h5 class="card-title">${hatCards[i].studentName}</h5>
                             <p class="card-text">${hatCards[i].houseName}</p>
-                            <a href="#" class="btn btn-danger" id="${i}">Expel</a>
+                            <a href="#" class="btn btn-danger" type="button" id="${i}">Expel</a>
                         </div>
                     </div>`;
   }
