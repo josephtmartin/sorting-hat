@@ -6,4 +6,4 @@
 
 ### Demo
 
-![Sorting Hat Demo]()
+![Sorting Hat Demo](https://github.com/josephtmartin/sorting-hat/blob/master/demo/sorting-hat.gif)
